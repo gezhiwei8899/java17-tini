@@ -9,10 +9,10 @@ RUN curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Cen
         && echo 'LANG="zh_CN.UTF-8"' > /etc/locale.conf \
         && source /etc/locale.conf \
         && yum clean all && \
-    curl -SL "https://github.com/gezhiwei8899/java8-tini/releases/download/24.0.1/jdk-8u411-linux-x64.tar.gz" -o /tmp/jdk-8u411-linux-x64.tar.gz && \
+    curl -SL "https://github.com/gezhiwei8899/java17-tini/releases/download/17/jdk-17.0.12_linux-x64_bin.tar.gz" -o /tmp/jdk-17.0.12_linux-x64_bin.tar.gz && \
     mkdir -p /usr/lib/jvm && \
-    tar -xf /tmp/jdk-8u411-linux-x64.tar.gz -C /usr/lib/jvm && \
-    rm /tmp/jdk-8u411-linux-x64.tar.gz && \
+    tar -xf /tmp/jdk-17.0.12_linux-x64_bin.tar.gz -C /usr/lib/jvm && \
+    rm /tmp/jdk-17.0.12_linux-x64_bin.tar.gz && \
     yum install -y iputils curl net-tools busybox tzdata && \
     rm -rf /var/cache/yum/* && \
     cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
@@ -21,7 +21,7 @@ RUN curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Cen
 ENV LANG=zh_CN.UTF-8 \
     LC_ALL=zh_CN.UTF-8
 # 设置环境变量
-ENV JAVA_HOME=/usr/lib/jvm/jdk1.8.0_411
+ENV JAVA_HOME=/usr/lib/jvm/jdk-17.0.12
 ENV PATH=$PATH:$JAVA_HOME/bin
 
 # 安装tini，并设置为容器的入口点
