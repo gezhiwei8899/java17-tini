@@ -13,7 +13,7 @@ RUN curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Cen
     mkdir -p /usr/lib/jvm && \
     tar -xf /tmp/jdk-17.0.12_linux-x64_bin.tar.gz -C /usr/lib/jvm && \
     rm /tmp/jdk-17.0.12_linux-x64_bin.tar.gz && \
-    yum install -y iputils curl net-tools busybox tzdata && \
+    yum install -y iputils curl net-tools busybox tzdata unzip wget && \
     rm -rf /var/cache/yum/* && \
     cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo "Asia/Shanghai" > /etc/timezone
