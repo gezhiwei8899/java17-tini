@@ -11,10 +11,11 @@ RUN curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Cen
     && yum install -y wget tar unzip git
 
 # 安装 Maven
-RUN wget https://downloads.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz \
+RUN wget https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz \
     && tar -xf apache-maven-3.9.9-bin.tar.gz \
     && mv apache-maven-3.9.9 /usr/local/maven \
     && rm apache-maven-3.9.9-bin.tar.gz
+
 
 ENV MAVEN_HOME=/usr/local/maven
 ENV PATH=$PATH:$MAVEN_HOME/bin
