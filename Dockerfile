@@ -23,11 +23,11 @@ ENV LANG=zh_CN.UTF-8 \
 RUN apt-get update && apt-get install -y --no-install-recommends \
     iputils-ping curl net-tools busybox unzip wget \
     tesseract-ocr tesseract-ocr-chi-sim tesseract-ocr-chi-tra tesseract-ocr-eng \
-    libleptonica-dev \
-    ntp \
-    && apt-get remove -y openjdk-* && apt-get autoremove -y
-    && apt-get install -y openjdk-17-jdk
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    libleptonica-dev && \
+    ntp && \
+    apt-get remove -y openjdk-* && apt-get autoremove -y  && \
+    apt-get install -y openjdk-17-jdk  && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # 安装 JDK 17 （从你提供的 tar.gz）
 # RUN curl -SL "https://github.com/gezhiwei8899/java17-tini/releases/download/17/jdk-17.0.12_linux-x64_bin.tar.gz" -o /tmp/jdk.tar.gz && \
