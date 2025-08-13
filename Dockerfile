@@ -19,10 +19,12 @@ ENV LANG=zh_CN.UTF-8 \
     TZ=Asia/Shanghai
 
 # 安装常用工具及 tesseract OCR 和语言包（中文简体、繁体、英文），以及 leptonica 依赖
-RUN apt-get install -y --no-install-recommends \
+# 安装 ntp 服务和常用工具及 tesseract OCR 和语言包（中文简体、繁体、英文），以及 leptonica 依赖
+RUN apt-get update && apt-get install -y --no-install-recommends \
     iputils-ping curl net-tools busybox unzip wget \
     tesseract-ocr tesseract-ocr-chi-sim tesseract-ocr-chi-tra tesseract-ocr-eng \
     libleptonica-dev \
+    ntp \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # 安装 JDK 17 （从你提供的 tar.gz）
