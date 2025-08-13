@@ -35,8 +35,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 #     tar -xf /tmp/jdk.tar.gz -C /usr/lib/jvm && \
 #     rm /tmp/jdk.tar.gz
 
-ENV JAVA_HOME=/usr/lib/jvm/jdk-17.0.12
-ENV PATH=$PATH:$JAVA_HOME/bin
+# ENV JAVA_HOME=/usr/lib/jvm/jdk-17.0.12
+# ENV PATH=$PATH:$JAVA_HOME/bin
 
 # 复制 tini 二进制，授权执行
 ADD ./tini /tini
