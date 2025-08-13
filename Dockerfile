@@ -30,10 +30,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # 安装 JDK 17 （从你提供的 tar.gz）
-RUN curl -SL "https://github.com/gezhiwei8899/java17-tini/releases/download/17/jdk-17.0.12_linux-x64_bin.tar.gz" -o /tmp/jdk.tar.gz && \
-    mkdir -p /usr/lib/jvm && \
-    tar -xf /tmp/jdk.tar.gz -C /usr/lib/jvm && \
-    rm /tmp/jdk.tar.gz
+# RUN curl -SL "https://github.com/gezhiwei8899/java17-tini/releases/download/17/jdk-17.0.12_linux-x64_bin.tar.gz" -o /tmp/jdk.tar.gz && \
+#     mkdir -p /usr/lib/jvm && \
+#     tar -xf /tmp/jdk.tar.gz -C /usr/lib/jvm && \
+#     rm /tmp/jdk.tar.gz
 
 ENV JAVA_HOME=/usr/lib/jvm/jdk-17.0.12
 ENV PATH=$PATH:$JAVA_HOME/bin
