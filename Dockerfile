@@ -25,6 +25,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tesseract-ocr tesseract-ocr-chi-sim tesseract-ocr-chi-tra tesseract-ocr-eng \
     libleptonica-dev \
     ntp \
+    && apt-get remove -y openjdk-* && apt-get autoremove -y
+    && apt-get install -y openjdk-17-jdk
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # 安装 JDK 17 （从你提供的 tar.gz）
